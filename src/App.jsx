@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as XLSX from "xlsx";
 import { createClient } from "@supabase/supabase-js";
-const SUPA=createClient("https://crnvjwbfetufqcbvnxhd.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNybnZqd2JmZXR1ZnFjYnZueGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MDk2OTIsImV4cCI6MjA5NjQ4NTY5Mn0.7QXA2h5YLZltjoVHkS9L0FXpdL2FSTV6DP31-jeqTa8");
+const SUPA=createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY);
 const EMAIL_API="/api/send-email";
 async function dbAll(t){try{const{data}=await SUPA.from(t).select("*");return data||[];}catch(e){return[];}}
 async function dbUpsert(t,r){try{await SUPA.from(t).upsert(r,{onConflict:"id"});}catch(e){console.warn(e);}}
