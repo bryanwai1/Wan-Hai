@@ -1061,6 +1061,7 @@ function VIPForm({ employees, setEmployees, tables, setTables, eventInfo, onConf
   const [email, setEmail]     = useState("");
   const [pax, setPax]         = useState(1);
   const [nameError, setNameError] = useState("");
+  const [dietary, setDietary] = useState("Non-Vegetarian");
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async () => {
